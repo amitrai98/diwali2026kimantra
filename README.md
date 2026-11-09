@@ -48,3 +48,4 @@ To host this live:
 1. Go to **Settings** > **Pages** in this GitHub repository.
 2. Select branch `main` and folder `/ (root)`.
 3. Click **Save**. Your site will be live at `https://amitrai98.github.io/diwali2026kimantra/`
+
