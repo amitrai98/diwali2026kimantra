@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diwali 2026 • Staff Appreciation</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Rozha+One&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --gold-primary: #f59e0b;
+      --gold-light: #fbbf24;
+      --gold-glow: rgba(245, 158, 11, 0.45);
+      --diwali-red: #e11d48;
+      --diwali-purple: #4c1d95;
+    }
+
+    * {
+      box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: #0c0a09;
+      color: #fef3c7;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', serif;
+    }
+
+    .font-rozha {
+      font-family: 'Rozha One', serif;
+    }
+
+    /* Ambient background blur */
+    .ambient-bg {
+      position: absolute;
+      inset: -5%;
+      width: 110%;
+      height: 110%;
+      background-size: cover;
+      background-position: center;
+      filter: blur(48px) brightness(0.28) saturate(1.6);
+      transition: background-image 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transform: scale(1.05);
+      z-index: 1;
+    }
+
+    /* Gold shimmer border & glows */
+    .glass-gold {
+      background: rgba(22, 18, 16, 0.72);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 20px -5px rgba(245, 158, 11, 0.2);
+    }
+
+    .glass-gold-subtle {
+      background: rgba(30, 24, 20, 0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(251, 191, 36, 0.22);
+    }
+
+    .glass-gold-pill {
+      background: linear-gradient(135deg, rgba(38, 28, 20, 0.85) 0%, rgba(20, 16, 14, 0.9) 100%);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4), 0 0 12px rgba(245, 158, 11, 0.15);
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .glass-gold-pill:hover {
+      transform: translateY(-4px) scale(1.04);
+      border-color: rgba(251, 191, 36, 0.8);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6), 0 0 24px rgba(245, 158, 11, 0.45);
+      background: linear-gradient(135deg, rgba(55, 38, 24, 0.95) 0%, rgba(30, 22, 18, 0.95) 100%);
+    }
+
+    .glass-gold-pill.spotlight {
+      transform: translateY(-6px) scale(1.08);
+      border-color: #f59e0b;
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.7), 0 12px 24px rgba(0, 0, 0, 0.6);
+      background: linear-gradient(135deg, rgba(78, 48, 18, 0.98) 0%, rgba(42, 28, 18, 0.98) 100%);
+    }
+
+    /* Floating Bubble Keyframes */
+    @keyframes floatSlow1 {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-7px) rotate(0.5deg);
+      }
+    }
+
+    @keyframes floatSlow2 {
+
+      0%,
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(-0.5deg);
+      }
+    }
+
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
+      }
+
+      50% {
+        box-shadow: 0 0 28px rgba(245, 158, 11, 0.6);
+      }
+    }
+
+    .bubble-float-1 {
+      animation: floatSlow1 4.5s ease-in-out infinite;
+    }
+
+    .bubble-float-2 {
+      animation: floatSlow2 5.5s ease-in-out infinite 0.7s;
+    }
+
+    .bubble-float-3 {
+      animation: floatSlow1 5.0s ease-in-out infinite 1.4s;
+    }
+
+    /* Infinite Marquee */
+    @keyframes marqueeScroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 45s linear infinite;
+    }
+
+    .marquee-track:hover {
+      animation-play-state: paused;
+    }
+
+    /* Ken Burns Subtle Movement */
+    @keyframes kenBurns1 {
+      0% {
+        transform: scale(1) translate(0, 0);
+      }
+
+      50% {
+        transform: scale(1.04) translate(-1%, -1%);
+      }
+
+      100% {
+        transform: scale(1) translate(0, 0);
+      }
+    }
+
+    @keyframes kenBurns2 {
+      0% {
+        transform: scale(1.03) translate(0.8%, 0.5%);
+      }
+
+      50% {
+        transform: scale(1) translate(0, 0);
+      }
+
+      100% {
+        transform: scale(1.03) translate(0.8%, 0.5%);
+      }
+    }
+
+    .kenburns-1 {
+      animation: kenBurns1 14s ease-in-out infinite;
+    }
+
+    .kenburns-2 {
+      animation: kenBurns2 16s ease-in-out infinite;
+    }
+
+    /* Diya flame glow */
+    @keyframes flameFlicker {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 0.95;
+        filter: drop-shadow(0 0 6px #f59e0b);
+      }
+
+      25% {
+        transform: scale(1.08, 0.92);
+        opacity: 1;
+        filter: drop-shadow(0 0 12px #fbbf24);
+      }
+
+      50% {
+        transform: scale(0.94, 1.05);
+        opacity: 0.9;
+        filter: drop-shadow(0 0 8px #d97706);
+      }
+
+      75% {
+        transform: scale(1.04, 0.96);
+        opacity: 1;
+        filter: drop-shadow(0 0 14px #f59e0b);
+      }
+    }
+
+    .diya-flicker {
+      animation: flameFlicker 2.2s infinite ease-in-out;
+      transform-origin: center bottom;
+    }
+
+    /* Hide scrollbars but keep touch/mouse scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Custom Range Slider */
+    input[type=range] {
+      accent-color: #f59e0b;
+    }
+  </style>
+</head>
+
+<body class="relative flex flex-col justify-between select-none">
+
+  <!-- Ambient Blurred Canvas Layer -->
+  <div id="ambientBg" class="ambient-bg pointer-events-none"></div>
+
+  <!-- Sparkle / Firecracker Particle Canvas -->
+  <canvas id="particleCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+  <!-- TOP BAR: Festive Branding & Utilities -->
+  <header
+    class="relative z-30 flex items-center justify-between px-4 sm:px-6 py-3 glass-gold-subtle border-b border-amber-500/20">
+    <div class="flex items-center gap-3">
+      <!-- Diya Icon -->
+      <div
+        class="relative w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-amber-600/40 via-red-900/30 to-amber-950/60 border border-amber-500/40 shadow-inner">
+        <span class="text-2xl diya-flicker">🪔</span>
+      </div>
+      <div>
+        <div class="flex items-center gap-2">
+          <h1
+            class="text-base sm:text-lg font-cinzel font-bold tracking-wider text-amber-200 flex items-center gap-1.5">
+            Diwali 2026 <span class="text-amber-500 font-normal">•</span> <span class="text-amber-300">Staff
+              Appreciation</span>
+          </h1>
+          <span
+            class="hidden md:inline-flex text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/30">
+            Sikka Kimantra Greens Residents
+          </span>
+        </div>
+        <p class="text-xs text-amber-300/70 hidden sm:block">
+          Honoring our frontline security, housekeeping & maintenance champions • Ashoka, Maurya & Kiyaan Towers
+        </p>
+      </div>
+    </div>
+
+    <!-- Top Right Controls -->
+    <div class="flex items-center gap-2">
+      <!-- Music Toggle -->
+      <button id="musicToggleBtn" title="Play / Pause 'Shaam-e-Rangoli' Background Song"
+        class="flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold glass-gold text-amber-200 hover:text-amber-100 hover:border-amber-400 transition shadow-lg">
+        <span id="musicIcon" class="text-sm">🎵</span>
+        <span id="musicLabel" class="hidden sm:inline">Play Song</span>
+        <span id="soundWave" class="hidden flex items-center gap-0.5 ml-1">
+          <span class="w-1 h-3 bg-amber-400 rounded-full animate-bounce"></span>
+          <span class="w-1 h-4 bg-amber-300 rounded-full animate-bounce" style="animation-delay: 0.15s"></span>
+          <span class="w-1 h-2 bg-amber-400 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+        </span>
+      </button>
+      <audio id="bgMusic" autoplay loop preload="auto">
+        <source src="./shame-rangoli-si-snapytapp_tlGL9f4P.mp3" type="audio/mpeg">
+        <source src="./background_music.mp3" type="audio/mpeg">
+      </audio>
+
+      <!-- Confetti Blast -->
+      <button id="confettiBtn" title="Launch Diwali Sparkles & Confetti"
+        class="p-2 sm:px-3 sm:py-1.5 rounded-full text-xs font-medium glass-gold text-amber-200 hover:text-amber-100 hover:border-amber-400 transition flex items-center gap-1">
+        <span>✨</span>
+        <span class="hidden sm:inline">Sparkles</span>
+      </button>
+
+      <!-- View Contributor Roster Modal -->
+      <button id="rosterBtn" title="View All 14 Contributing Families"
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-amber-600 to-amber-500 text-stone-950 shadow-lg hover:from-amber-500 hover:to-amber-400 hover:shadow-amber-500/30 transition">
+        <span>📋</span>
+        <span class="hidden sm:inline">14 Contributors</span>
+      </button>
+
+      <!-- Video Downloads -->
+      <a href="./Diwali_2026_Staff_Appreciation_Reels_9x16.mp4" download="Diwali_2026_Sikka_Kimantra_Greens_Reel_9x16.mp4"
+        title="Download Portrait Reel / Story Video (9:16 Full HD)"
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-purple-600 via-pink-600 to-rose-600 text-white shadow-lg hover:from-purple-500 hover:to-rose-500 hover:shadow-pink-500/30 transition">
+        <span>📱</span>
+        <span class="hidden sm:inline">Instagram Reel (9:16)</span>
+      </a>
+
+      <a href="./Diwali_2026_Staff_Appreciation.mp4" download="Diwali_2026_Sikka_Kimantra_Greens_16x9.mp4"
+        title="Download Landscape Video (16:9 Full HD)"
+        class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-lg hover:from-amber-500 hover:to-rose-500 hover:shadow-amber-500/30 transition">
+        <span>🎬</span>
+        <span class="hidden sm:inline">Video (16:9)</span>
+      </a>
+
+      <!-- Fullscreen Toggle -->
+      <button id="fullscreenBtn" title="Toggle Fullscreen (F)"
+        class="p-2 rounded-full glass-gold text-amber-200 hover:text-amber-100 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- MAIN CINEMATIC STAGE -->
+  <main class="relative z-20 flex-1 flex items-center justify-center overflow-hidden p-2 sm:p-4">
+
+    <!-- Primary Slide Container -->
+    <div
+      class="relative w-full h-full max-w-6xl max-h-[75vh] flex items-center justify-center rounded-2xl overflow-hidden glass-gold border border-amber-500/30 shadow-2xl">
+
+      <!-- Current Slide Image with Ken Burns animation -->
+      <div id="slideImageWrapper"
+        class="relative w-full h-full flex items-center justify-center bg-black/40 overflow-hidden">
+        <img id="mainImage" src="./optimized/IMG_3454.jpeg" alt="Diwali celebration"
+          class="max-h-full max-w-full object-contain transition-all duration-700 kenburns-1 rounded-xl shadow-2xl">
+      </div>
+
+      <!-- Slide Caption Floating Pill -->
+      <div class="absolute top-4 left-4 right-4 sm:right-auto z-30 pointer-events-none">
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-xl glass-gold border border-amber-400/40 text-amber-100 shadow-xl backdrop-blur-md">
+          <span class="text-amber-400 font-bold text-xs tracking-wider uppercase font-cinzel">Moment <span
+              id="slideIndexLabel">1</span> / <span id="slideTotalLabel">16</span></span>
+          <span class="text-amber-500">•</span>
+          <span id="slideCaption"
+            class="text-xs sm:text-sm font-medium text-stone-200 truncate max-w-[280px] sm:max-w-md">Housekeeping &
+            Facility Champions</span>
+        </div>
+      </div>
+
+      <!-- Floating Prev / Next Controls -->
+      <button id="prevBtn" title="Previous Photo (Left Arrow)"
+        class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full glass-gold flex items-center justify-center text-amber-300 hover:text-amber-100 hover:scale-110 active:scale-95 transition shadow-xl border border-amber-500/40">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+      <button id="nextBtn" title="Next Photo (Right Arrow)"
+        class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full glass-gold flex items-center justify-center text-amber-300 hover:text-amber-100 hover:scale-110 active:scale-95 transition shadow-xl border border-amber-500/40">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+        </svg>
+      </button>
+
+      <!-- Autoplay Progress Ring Indicator -->
+      <div class="absolute top-4 right-4 z-30 flex items-center gap-2">
+        <button id="playPauseBtn"
+          class="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-gold text-amber-200 text-xs font-semibold hover:border-amber-400 transition shadow-lg">
+          <span id="playPauseIcon">⏸</span>
+          <span id="playPauseText" class="hidden sm:inline">Pause</span>
+        </button>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BOTTOM FLOATING NAME BUBBLES SECTION (The Core Requirement) -->
+  <section class="relative z-30 w-full px-2 sm:px-6 pb-2 pt-1 flex flex-col gap-2">
+
+    <!-- Bubble Dock Bar Header & Controls -->
+    <div class="flex items-center justify-between px-3 py-1 text-xs text-amber-200/80">
+      <div class="flex items-center gap-2">
+        <span class="text-amber-400 font-cinzel font-bold flex items-center gap-1">
+          <span class="diya-flicker">🪔</span> Contributing Residents
+        </span>
+        <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20">
+          14 Families
+        </span>
+      </div>
+
+      <!-- Filter & View Mode Controls -->
+      <div class="flex items-center gap-1 sm:gap-2">
+        <!-- Tower Filter -->
+        <div class="flex items-center bg-stone-900/80 p-0.5 rounded-lg border border-amber-500/20 text-[11px]">
+          <button class="filter-btn px-2 py-0.5 rounded text-amber-400 font-semibold bg-amber-500/20 active"
+            data-filter="all">All (14)</button>
+          <button class="filter-btn px-2 py-0.5 rounded text-amber-300/70 hover:text-amber-200"
+            data-filter="Maurya">Maurya (6)</button>
+          <button class="filter-btn px-2 py-0.5 rounded text-amber-300/70 hover:text-amber-200"
+            data-filter="Kiyaan">Kiyaan (8)</button>
+        </div>
+
+        <!-- Mode Toggle -->
+        <button id="bubbleModeBtn" title="Toggle Bubble Flow / Grid View"
+          class="px-2.5 py-1 rounded-lg glass-gold text-[11px] text-amber-300 hover:text-amber-100 flex items-center gap-1 transition">
+          <span id="modeIcon">🎈</span>
+          <span id="modeText" class="hidden sm:inline">Float Flow</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- THE BUBBLE DOCK CONTAINER -->
+    <div id="bubbleDockContainer"
+      class="relative w-full overflow-hidden rounded-2xl glass-gold-subtle border border-amber-500/30 p-2 shadow-2xl backdrop-blur-xl">
+
+      <!-- Continuous Marquee View (Default) -->
+      <div id="marqueeView" class="w-full overflow-hidden relative">
+        <!-- Left & Right Gradient Fade Masks -->
+        <div
+          class="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-stone-950 to-transparent z-10 pointer-events-none">
+        </div>
+        <div
+          class="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-stone-950 to-transparent z-10 pointer-events-none">
+        </div>
+
+        <div id="marqueeTrack" class="marquee-track flex gap-3 py-1">
+          <!-- Populated by JavaScript with dual sets for infinite scroll -->
+        </div>
+      </div>
+
+      <!-- Wrapped Grid View (Alternative) -->
+      <div id="gridView" class="hidden max-h-32 overflow-y-auto no-scrollbar flex flex-wrap gap-2 justify-center py-1">
+        <!-- Populated by JavaScript -->
+      </div>
+    </div>
+
+    <!-- Minimal Bottom Bar with Thumbnail Drawer & Shortcuts -->
+    <div class="flex items-center justify-between text-[11px] text-amber-300/60 px-3 py-0.5">
+      <div class="flex items-center gap-2">
+        <button id="toggleThumbnailsBtn" class="hover:text-amber-200 transition flex items-center gap-1 text-[11px]">
+          <span>🖼️</span> <span id="thumbToggleText">Show Thumbnails (16)</span>
+        </button>
+        <span class="text-stone-700">•</span>
+        <span class="hidden md:inline">Use <kbd
+            class="px-1 py-0.5 rounded bg-stone-800 text-amber-300 text-[10px]">←</kbd> <kbd
+            class="px-1 py-0.5 rounded bg-stone-800 text-amber-300 text-[10px]">→</kbd> to navigate</span>
+        <span class="text-stone-700 hidden md:inline">•</span>
+        <span class="hidden md:inline"><kbd
+            class="px-1 py-0.5 rounded bg-stone-800 text-amber-300 text-[10px]">Space</kbd> Pause/Play</span>
+      </div>
+      <div class="flex items-center gap-1.5">
+        <span>Slide Interval:</span>
+        <select id="intervalSelect"
+          class="bg-stone-900 border border-amber-500/30 rounded px-1.5 py-0.5 text-[11px] text-amber-300">
+          <option value="3000">3s</option>
+          <option value="5000" selected>5s</option>
+          <option value="7000">7s</option>
+          <option value="10000">10s</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Collapsible Mini-Thumbnail Drawer -->
+    <div id="thumbnailDrawer"
+      class="hidden overflow-x-auto no-scrollbar py-2 px-1 flex gap-2 rounded-xl glass-gold border border-amber-500/20">
+      <!-- Populated by JavaScript -->
+    </div>
+  </section>
+
+  <!-- MODAL: WALL OF GRATITUDE / ALL 14 CONTRIBUTORS ROSTER -->
+  <div id="rosterModal"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div
+      class="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto no-scrollbar rounded-3xl glass-gold border-2 border-amber-400/50 p-6 sm:p-8 shadow-2xl text-stone-100">
+
+      <!-- Close Button -->
+      <button id="closeRosterBtn"
+        class="absolute top-5 right-5 w-9 h-9 rounded-full glass-gold flex items-center justify-center text-amber-300 hover:text-white hover:scale-105 transition">
+        ✕
+      </button>
+
+      <!-- Modal Header -->
+      <div class="text-center mb-6">
+        <div
+          class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-amber-500/10 border border-amber-400/30 mb-3 shadow-inner">
+          <span class="text-3xl diya-flicker">🪔</span>
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-cinzel font-bold text-amber-300 tracking-wide">
+          Diwali 2026 Gratitude Honor Roll
+        </h2>
+        <p class="text-xs sm:text-sm text-amber-200/80 mt-1 max-w-md mx-auto">
+          Warmest appreciation to the resident families of Sikka Kimantra Greens Residents whose generous contributions
+          made this
+          Diwali celebration memorable for our support staff.
+        </p>
+      </div>
+
+      <!-- Tower Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+        <!-- Maurya Tower Column -->
+        <div class="rounded-2xl bg-gradient-to-b from-amber-950/40 to-stone-900/60 border border-amber-500/30 p-4">
+          <div class="flex items-center justify-between pb-2 mb-3 border-b border-amber-500/20">
+            <h3 class="font-cinzel font-bold text-amber-300 flex items-center gap-1.5">
+              <span>🏛️</span> Maurya Tower
+            </h3>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300">
+              6 Residents
+            </span>
+          </div>
+          <div id="mauryaList" class="flex flex-col gap-2">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Kiyaan Tower Column -->
+        <div class="rounded-2xl bg-gradient-to-b from-rose-950/40 to-stone-900/60 border border-rose-500/30 p-4">
+          <div class="flex items-center justify-between pb-2 mb-3 border-b border-rose-500/20">
+            <h3 class="font-cinzel font-bold text-rose-300 flex items-center gap-1.5">
+              <span>💎</span> Kiyaan Tower
+            </h3>
+            <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-rose-500/20 text-rose-300">
+              8 Residents
+            </span>
+          </div>
+          <div id="kiyaanList" class="flex flex-col gap-2">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+
+      </div>
+
+      <!-- Footer Note -->
+      <div class="mt-6 pt-4 border-t border-amber-500/20 text-center">
+        <p class="text-xs text-amber-300/70">
+          "May the Divine Light of Diwali bring peace, prosperity, and joy to every home and family." ✨
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    // --- 1. DATA SOURCES ---
+    const contributors = [
+      { name: "Amitesh Maurya", tower: "Maurya", flat: "101", avatar: "AM", accent: "from-amber-500 to-amber-700" },
+      { name: "Poonam", tower: "Kiyaan", flat: "002", avatar: "PN", accent: "from-rose-500 to-pink-700" },
+      { name: "Balvinder Singh", tower: "Kiyaan", flat: "1601", avatar: "BS", accent: "from-yellow-500 to-amber-700" },
+      { name: "Nibedita", tower: "Kiyaan", flat: "202", avatar: "NB", accent: "from-fuchsia-500 to-purple-700" },
+      { name: "Nikunj Negandhi", tower: "Kiyaan", flat: "2403", avatar: "NN", accent: "from-blue-500 to-indigo-700" },
+      { name: "Vibhor Sharma", tower: "Maurya", flat: "1504", avatar: "VS", accent: "from-emerald-500 to-teal-700" },
+      { name: "Kamalesh Bargali", tower: "Maurya", flat: "703", avatar: "KB", accent: "from-orange-500 to-red-700" },
+      { name: "Monika", tower: "Kiyaan", flat: "2503", avatar: "MK", accent: "from-pink-500 to-rose-700" },
+      { name: "Arjun Chaudhary", tower: "Maurya", flat: "302", avatar: "AC", accent: "from-amber-600 to-yellow-700" },
+      { name: "Rahul", tower: "Kiyaan", flat: "2002", avatar: "RH", accent: "from-cyan-500 to-blue-700" },
+      { name: "Amit Rai", tower: "Maurya", flat: "201", avatar: "AR", accent: "from-violet-500 to-purple-800" },
+      { name: "Adarsh", tower: "Maurya", flat: "604", avatar: "AD", accent: "from-rose-600 to-red-800" },
+      { name: "B.K Khare", tower: "Kiyaan", flat: "2201", avatar: "BK", accent: "from-amber-500 to-orange-700" },
+      { name: "T.K Pathak", tower: "Kiyaan", flat: "301, 302", avatar: "TK", accent: "from-teal-500 to-emerald-700" },
+    ];
+
+    const slides = [
+      {
+        file: "./optimized/IMG_3454.jpeg",
+        title: "Housekeeping & Facility Champions",
+        desc: "Sharing Diwali festive greetings & gift envelopes with our dedicated housekeeping ladies & team",
+        spotlight: 0 // Amitesh Maurya
+      },
+      {
+        file: "./optimized/IMG_3458.jpeg",
+        title: "Frontline Security Appreciation",
+        desc: "Resident distributing festive shagun envelopes and sweets at the main society gate canopy",
+        spotlight: 1 // Poonam
+      },
+      {
+        file: "./optimized/IMG_3459.jpeg",
+        title: "Smiles with the Little Ones",
+        desc: "Children holding festive balloons as security staff receive Diwali tokens of appreciation",
+        spotlight: 2 // Balvinder Singh
+      },
+      {
+        file: "./optimized/IMG_3460.jpeg",
+        title: "Warmth & Mutual Respect",
+        desc: "Joyous moments honoring our security team who safeguard our community round the clock",
+        spotlight: 3 // Nibedita
+      },
+      {
+        file: "./optimized/IMG_3461.jpeg",
+        title: "Salute of Gratitude",
+        desc: "Frontline security officer proudly receiving the Diwali token alongside resident families",
+        spotlight: 4 // Nikunj Negandhi
+      },
+      {
+        file: "./optimized/IMG_3462.jpeg",
+        title: "Technical & Mobility Team Honor",
+        desc: "Recognizing technicians and facility helpers keeping society operations seamless",
+        spotlight: 5 // Vibhor Sharma
+      },
+      {
+        file: "./optimized/IMG_3464.jpeg",
+        title: "Namaste at Maurya Reception",
+        desc: "A moment of heartfelt gratitude and respectful folded hands at the Maurya entry station",
+        spotlight: 6 // Kamalesh Bargali
+      },
+      {
+        file: "./optimized/IMG_3465.jpeg",
+        title: "Tower Lobby Desk Token",
+        desc: "Presenting festive shagun to the security desk officer inside the tower lobby",
+        spotlight: 7 // Monika
+      },
+      {
+        file: "./optimized/IMG_3467.jpeg",
+        title: "Appreciation for Night Vigil",
+        desc: "Extending Diwali gifts to the security officers managing night surveillance and peace",
+        spotlight: 8 // Arjun Chaudhary
+      },
+      {
+        file: "./optimized/IMG_3468.jpeg",
+        title: "Under the Fairy Lights Canopy",
+        desc: "Evening celebrations with glowing lights, festive sweets, and shagun distribution",
+        spotlight: 9 // Rahul
+      },
+      {
+        file: "./optimized/IMG_3469.jpeg",
+        title: "Lady Resident Celebrating Staff",
+        desc: "Resident lady presenting Diwali gift envelope to security officer on evening duty",
+        spotlight: 10 // Amit Rai
+      },
+      {
+        file: "./optimized/IMG_3471.jpeg",
+        title: "Festive Evening Gate Gathering",
+        desc: "Residents uniting under festive string lights to personally thank our support officers",
+        spotlight: 11 // Adarsh
+      },
+      {
+        file: "./optimized/IMG_3472.jpeg",
+        title: "Touching Blessings of Gratitude",
+        desc: "Officer reverently touching the gift envelope to forehead in touching gesture of gratitude",
+        spotlight: 12 // B.K Khare
+      },
+      {
+        file: "./optimized/IMG_3473.jpeg",
+        title: "Senior Resident Honoring Guards",
+        desc: "Senior resident presenting festive Diwali gift envelope with illuminated towers in background",
+        spotlight: 13 // T.K Pathak
+      },
+      {
+        file: "./optimized/IMG_3446.jpeg",
+        title: "Society Staff Coordination",
+        desc: "Committee members and team leads coordinating in the society office with occupancy tallies",
+        spotlight: 0
+      },
+      {
+        file: "./optimized/IMG_3447.jpeg",
+        title: "Support Leadership Token",
+        desc: "Presenting token of festive appreciation to society coordinator and management staff",
+        spotlight: 1
+      }
+    ];
+
+    // --- 2. STATE ---
+    let currentSlide = 0;
+    let isPlaying = true;
+    let slideTimer = null;
+    let slideIntervalMs = 5000;
+    let activeFilter = 'all';
+    let isGridView = false;
+    let audioCtx = null;
+    let isAudioPlaying = false;
+    let audioTimer = null;
+
+    // --- 3. DOM ELEMENTS ---
+    const mainImage = document.getElementById('mainImage');
+    const ambientBg = document.getElementById('ambientBg');
+    const slideIndexLabel = document.getElementById('slideIndexLabel');
+    const slideTotalLabel = document.getElementById('slideTotalLabel');
+    const slideCaption = document.getElementById('slideCaption');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const playPauseIcon = document.getElementById('playPauseIcon');
+    const playPauseText = document.getElementById('playPauseText');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const marqueeTrack = document.getElementById('marqueeTrack');
+    const gridView = document.getElementById('gridView');
+    const marqueeView = document.getElementById('marqueeView');
+    const bubbleModeBtn = document.getElementById('bubbleModeBtn');
+    const modeIcon = document.getElementById('modeIcon');
+    const modeText = document.getElementById('modeText');
+    const thumbnailDrawer = document.getElementById('thumbnailDrawer');
+    const toggleThumbnailsBtn = document.getElementById('toggleThumbnailsBtn');
+    const thumbToggleText = document.getElementById('thumbToggleText');
+    const intervalSelect = document.getElementById('intervalSelect');
+    const rosterBtn = document.getElementById('rosterBtn');
+    const rosterModal = document.getElementById('rosterModal');
+    const closeRosterBtn = document.getElementById('closeRosterBtn');
+    const confettiBtn = document.getElementById('confettiBtn');
+    const musicToggleBtn = document.getElementById('musicToggleBtn');
+    const musicIcon = document.getElementById('musicIcon');
+    const musicLabel = document.getElementById('musicLabel');
+    const fullscreenBtn = document.getElementById('fullscreenBtn');
+
+    // --- 4. RENDER BUBBLES ---
+    function createBubbleElement(person, index, isDuplicate = false) {
+      const bubble = document.createElement('div');
+      const floatClass = (index % 3 === 0) ? 'bubble-float-1' : (index % 3 === 1) ? 'bubble-float-2' : 'bubble-float-3';
+
+      bubble.className = `glass-gold-pill ${floatClass} cursor-pointer inline-flex items-center gap-2.5 px-3.5 py-2 rounded-2xl shrink-0 transition-all duration-300`;
+      bubble.dataset.name = person.name;
+      bubble.dataset.tower = person.tower;
+      bubble.dataset.flat = person.flat;
+      bubble.dataset.index = index;
+      if (isDuplicate) bubble.dataset.duplicate = "true";
+
+      const towerBadgeColor = person.tower === 'Maurya'
+        ? 'bg-amber-500/20 text-amber-300 border-amber-500/30'
+        : 'bg-rose-500/20 text-rose-300 border-rose-500/30';
+
+      const diyaBadge = person.tower === 'Maurya' ? '🏛️' : '💎';
+
+      bubble.innerHTML = `
+        <div class="w-7 h-7 rounded-full bg-gradient-to-br ${person.accent} flex items-center justify-center text-white font-bold text-xs shadow-md border border-white/20">
+          ${person.avatar}
+        </div>
+        <div class="flex flex-col text-left">
+          <div class="flex items-center gap-1.5">
+            <span class="text-xs font-bold text-amber-100 tracking-wide">${person.name}</span>
+            <span class="text-[10px] diya-flicker">🪔</span>
+          </div>
+          <div class="flex items-center gap-1 text-[11px] text-amber-300/80">
+            <span class="px-1.5 py-0.2 rounded border text-[10px] font-medium ${towerBadgeColor}">${diyaBadge} ${person.tower}</span>
+            <span class="text-stone-300 font-semibold">#${person.flat}</span>
+          </div>
+        </div>
+      `;
+
+      bubble.addEventListener('click', (e) => {
+        triggerConfettiAt(e.clientX, e.clientY);
+        highlightBubble(person.name);
+        // Find slide associated with this person if possible
+        const targetSlide = slides.findIndex(s => s.spotlight === index);
+        if (targetSlide !== -1) {
+          goToSlide(targetSlide);
+        }
+      });
+
+      return bubble;
+    }
+
+    function renderAllBubbles() {
+      marqueeTrack.innerHTML = '';
+      gridView.innerHTML = '';
+
+      const filtered = activeFilter === 'all'
+        ? contributors
+        : contributors.filter(c => c.tower.toLowerCase() === activeFilter.toLowerCase());
+
+      // Populate Grid View
+      filtered.forEach((p, idx) => {
+        const originalIdx = contributors.findIndex(c => c.name === p.name);
+        gridView.appendChild(createBubbleElement(p, originalIdx));
+      });
+
+      // Populate Marquee Track (double sets for seamless infinite loop)
+      filtered.forEach((p, idx) => {
+        const originalIdx = contributors.findIndex(c => c.name === p.name);
+        marqueeTrack.appendChild(createBubbleElement(p, originalIdx));
+      });
+      // Clone set
+      filtered.forEach((p, idx) => {
+        const originalIdx = contributors.findIndex(c => c.name === p.name);
+        marqueeTrack.appendChild(createBubbleElement(p, originalIdx, true));
+      });
+
+      updateSpotlightBubbles();
+    }
+
+    function highlightBubble(name) {
+      document.querySelectorAll('.glass-gold-pill').forEach(b => {
+        if (b.dataset.name === name) {
+          b.classList.add('spotlight');
+        } else {
+          b.classList.remove('spotlight');
+        }
+      });
+    }
+
+    function updateSpotlightBubbles() {
+      const slide = slides[currentSlide];
+      if (!slide) return;
+      const person = contributors[slide.spotlight];
+      if (person) {
+        highlightBubble(person.name);
+      }
+    }
+
+    // --- 5. RENDER THUMBNAILS ---
+    function renderThumbnails() {
+      thumbnailDrawer.innerHTML = '';
+      slides.forEach((slide, idx) => {
+        const thumb = document.createElement('button');
+        thumb.className = `relative w-16 h-12 rounded-lg overflow-hidden shrink-0 border-2 transition ${idx === currentSlide ? 'border-amber-400 scale-105 shadow-lg shadow-amber-500/30' : 'border-stone-800 opacity-60 hover:opacity-100'}`;
+        thumb.innerHTML = `
+          <img src="${slide.file}" class="w-full h-full object-cover" alt="thumb ${idx + 1}">
+          <span class="absolute bottom-0 right-0 px-1 bg-black/70 text-[9px] text-amber-200 font-bold">${idx + 1}</span>
+        `;
+        thumb.addEventListener('click', () => goToSlide(idx));
+        thumbnailDrawer.appendChild(thumb);
+      });
+    }
+
+    // --- 6. RENDER ROSTER MODAL ---
+    function renderRoster() {
+      const mauryaList = document.getElementById('mauryaList');
+      const kiyaanList = document.getElementById('kiyaanList');
+      mauryaList.innerHTML = '';
+      kiyaanList.innerHTML = '';
+
+      contributors.forEach(p => {
+        const row = document.createElement('div');
+        row.className = "flex items-center justify-between p-2.5 rounded-xl bg-stone-900/60 border border-stone-800 hover:border-amber-500/40 transition";
+        row.innerHTML = `
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-full bg-gradient-to-br ${p.accent} flex items-center justify-center font-bold text-xs text-white shadow">
+              ${p.avatar}
+            </div>
+            <div>
+              <div class="text-xs sm:text-sm font-bold text-amber-100">${p.name}</div>
+              <div class="text-[11px] text-amber-300/70">Flat ${p.flat}</div>
+            </div>
+          </div>
+          <div class="text-xs px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-300 font-semibold border border-amber-500/20">
+            ${p.tower}
+          </div>
+        `;
+
+        if (p.tower === 'Maurya') {
+          mauryaList.appendChild(row);
+        } else {
+          kiyaanList.appendChild(row);
+        }
+      });
+    }
+
+    // --- 7. SLIDESHOW NAVIGATION ---
+    function updateSlide() {
+      const slide = slides[currentSlide];
+
+      // Update foreground image with cross-fade
+      mainImage.style.opacity = '0';
+      mainImage.style.transform = 'scale(0.96)';
+
+      setTimeout(() => {
+        mainImage.src = slide.file;
+        ambientBg.style.backgroundImage = `url("${slide.file}")`;
+
+        mainImage.onload = () => {
+          mainImage.style.opacity = '1';
+          mainImage.style.transform = 'scale(1)';
+          // Toggle ken burns class to re-trigger movement
+          mainImage.className = `max-h-full max-w-full object-contain transition-all duration-700 rounded-xl shadow-2xl ${currentSlide % 2 === 0 ? 'kenburns-1' : 'kenburns-2'}`;
+        };
+      }, 250);
+
+      slideIndexLabel.textContent = currentSlide + 1;
+      slideTotalLabel.textContent = slides.length;
+      slideCaption.textContent = slide.title;
+
+      updateSpotlightBubbles();
+      renderThumbnails();
+    }
+
+    function goToSlide(idx) {
+      currentSlide = (idx + slides.length) % slides.length;
+      updateSlide();
+      resetTimer();
+    }
+
+    function nextSlide() {
+      goToSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      goToSlide(currentSlide - 1);
+    }
+
+    function togglePlayPause() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        playPauseIcon.textContent = '⏸';
+        playPauseText.textContent = 'Pause';
+        resetTimer();
+      } else {
+        playPauseIcon.textContent = '▶';
+        playPauseText.textContent = 'Play';
+        clearInterval(slideTimer);
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(slideTimer);
+      if (isPlaying) {
+        slideTimer = setInterval(nextSlide, slideIntervalMs);
+      }
+    }
+
+    // --- 8. AUDIO SYNTHESIZER: FESTIVE DIWALI SITAR / TANPURA CHIMES ---
+    // Pure Web Audio API: 100% offline, zero network requests!
+    function initFestiveAudio() {
+      if (audioCtx) return;
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+
+    function playFestiveRagaNote(freq, time, duration = 1.8) {
+      if (!audioCtx) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+
+      // Plucked string envelope
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(freq, time);
+
+      gain.gain.setValueAtTime(0.001, time);
+      gain.gain.exponentialRampToValueAtTime(0.18, time + 0.05);
+      gain.gain.exponentialRampToValueAtTime(0.0001, time + duration);
+
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      osc.start(time);
+      osc.stop(time + duration);
+    }
+
+    function startFestiveMelody() {
+      initFestiveAudio();
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      isAudioPlaying = true;
+      musicIcon.textContent = '🎶';
+      musicLabel.textContent = 'Music Playing';
+
+      // Raga Bhupali Notes: Sa, Re, Ga, Pa, Dha (C, D, E, G, A)
+      const ragaFreqs = [261.63, 293.66, 329.63, 392.00, 440.00, 523.25];
+      let step = 0;
+
+      audioTimer = setInterval(() => {
+        if (!isAudioPlaying) return;
+        const now = audioCtx.currentTime;
+        const note = ragaFreqs[step % ragaFreqs.length];
+        playFestiveRagaNote(note, now, 2.2);
+
+        // Harmony drone
+        if (step % 2 === 0) {
+          playFestiveRagaNote(130.81, now, 3.5); // Low Sa
+          playFestiveRagaNote(196.00, now + 0.2, 3.2); // Low Pa
+        }
+
+        // Random pleasant decorative sitar pluck
+        if (Math.random() > 0.4) {
+          const highNote = ragaFreqs[Math.floor(Math.random() * ragaFreqs.length)] * 2;
+          playFestiveRagaNote(highNote, now + 0.4, 1.2);
+        }
+
+        step++;
+      }, 1200);
+    }
+
+    function stopFestiveMelody() {
+      isAudioPlaying = false;
+      clearInterval(audioTimer);
+      musicIcon.textContent = '🎵';
+      musicLabel.textContent = 'Festive Music';
+    }
+
+    const bgAudio = document.getElementById('bgMusic');
+    const soundWave = document.getElementById('soundWave');
+    let audioUnlocked = false;
+
+    function updateAudioUI(playing) {
+      isAudioPlaying = playing;
+      if (playing) {
+        musicIcon.textContent = '🎶';
+        musicLabel.textContent = 'Shaam-e-Rangoli';
+        if (soundWave) soundWave.classList.remove('hidden');
+        const pill = document.getElementById('audioPromptPill');
+        if (pill) {
+          pill.style.opacity = '0';
+          setTimeout(() => pill.remove(), 300);
+        }
+      } else {
+        musicIcon.textContent = '🎵';
+        musicLabel.textContent = 'Play Song';
+        if (soundWave) soundWave.classList.add('hidden');
+      }
+    }
+
+    function playSongNow() {
+      if (!bgAudio) return Promise.reject();
+      bgAudio.volume = 0.85;
+      bgAudio.muted = false;
+      const playPromise = bgAudio.play();
+      if (playPromise !== undefined) {
+        return playPromise.then(() => {
+          audioUnlocked = true;
+          updateAudioUI(true);
+          detachUnlockListeners();
+        });
+      }
+      return Promise.resolve();
+    }
+
+    function showGentleAudioPrompt() {
+      if (document.getElementById('audioPromptPill') || isAudioPlaying) return;
+      const pill = document.createElement('div');
+      pill.id = 'audioPromptPill';
+      pill.className = 'fixed bottom-24 sm:bottom-28 left-1/2 -translate-x-1/2 z-50 cursor-pointer flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-600 via-rose-600 to-amber-600 text-white font-semibold text-xs shadow-2xl border border-amber-300/40 hover:scale-105 transition duration-300 animate-pulse';
+      pill.innerHTML = '<span>🪔</span><span>Tap anywhere to start music <b>"Shaam-e-Rangoli"</b> 🎵</span>';
+      pill.onclick = (e) => {
+        e.stopPropagation();
+        playSongNow();
+      };
+      document.body.appendChild(pill);
+    }
+
+    function onUserGesture() {
+      if (audioUnlocked && !bgAudio.paused && !bgAudio.muted) {
+        detachUnlockListeners();
+        return;
+      }
+      playSongNow().catch(() => {});
+    }
+
+    const unlockEvents = ['pointerdown', 'touchstart', 'touchend', 'click', 'keydown'];
+
+    function attachUnlockListeners() {
+      unlockEvents.forEach(evt => {
+        window.addEventListener(evt, onUserGesture, { capture: true, passive: true });
+        document.addEventListener(evt, onUserGesture, { capture: true, passive: true });
+      });
+    }
+
+    function detachUnlockListeners() {
+      unlockEvents.forEach(evt => {
+        window.removeEventListener(evt, onUserGesture, { capture: true });
+        document.removeEventListener(evt, onUserGesture, { capture: true });
+      });
+    }
+
+    function initAutoPlayByDefault() {
+      if (bgAudio) {
+        bgAudio.volume = 0.85;
+        bgAudio.muted = false;
+      }
+
+      // Attach interaction listeners immediately so first touch/click anywhere starts music
+      attachUnlockListeners();
+
+      // Trigger unmuted autoplay right away
+      const promise = playSongNow();
+      if (promise && promise.catch) {
+        promise.catch(err => {
+          console.log('Unmuted autoplay deferred by browser security policy; awaiting user touch:', err);
+          showGentleAudioPrompt();
+        });
+      }
+    }
+
+    function toggleFestiveAudio() {
+      if (!bgAudio) return;
+      if (bgAudio.paused || bgAudio.muted) {
+        playSongNow().catch(() => {});
+      } else {
+        bgAudio.pause();
+        updateAudioUI(false);
+      }
+    }
+
+    // --- 9. PARTICLE CANVAS & SPARKLERS ---
+    const canvas = document.getElementById('particleCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor(x, y, isBurst = false) {
+        this.x = x !== undefined ? x : Math.random() * canvas.width;
+        this.y = y !== undefined ? y : canvas.height + 20;
+        this.isBurst = isBurst;
+
+        if (isBurst) {
+          const angle = Math.random() * Math.PI * 2;
+          const speed = Math.random() * 6 + 2;
+          this.vx = Math.cos(angle) * speed;
+          this.vy = Math.sin(angle) * speed;
+          this.size = Math.random() * 4 + 2;
+          this.life = 1;
+          this.decay = Math.random() * 0.02 + 0.015;
+        } else {
+          this.vx = (Math.random() - 0.5) * 0.8;
+          this.vy = -(Math.random() * 1.5 + 0.5);
+          this.size = Math.random() * 3 + 1;
+          this.life = Math.random() * 0.6 + 0.4;
+          this.decay = Math.random() * 0.004 + 0.002;
+        }
+
+        const colors = ['#f59e0b', '#fbbf24', '#fef08a', '#ea580c', '#e11d48', '#ffffff'];
+        this.color = colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.isBurst) {
+          this.vy += 0.08; // gravity
+        }
+        this.life -= this.decay;
+      }
+
+      draw() {
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, this.life);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 10;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      }
+    }
+
+    function initFloatingEmbers() {
+      for (let i = 0; i < 35; i++) {
+        const p = new Particle(Math.random() * canvas.width, Math.random() * canvas.height);
+        particles.push(p);
+      }
+    }
+
+    function triggerConfettiAt(x, y, count = 45) {
+      for (let i = 0; i < count; i++) {
+        particles.push(new Particle(x, y, true));
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Maintain floating background embers
+      if (particles.filter(p => !p.isBurst).length < 35) {
+        particles.push(new Particle());
+      }
+
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+        if (p.life <= 0 || p.y < -30 || p.y > canvas.height + 50) {
+          particles.splice(i, 1);
+        }
+      }
+
+      requestAnimationFrame(animateParticles);
+    }
+
+    // --- 10. EVENT LISTENERS & WIRING ---
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    playPauseBtn.addEventListener('click', togglePlayPause);
+
+    intervalSelect.addEventListener('change', (e) => {
+      slideIntervalMs = parseInt(e.target.value, 10);
+      resetTimer();
+    });
+
+    // Bubble view mode switch
+    bubbleModeBtn.addEventListener('click', () => {
+      isGridView = !isGridView;
+      if (isGridView) {
+        marqueeView.classList.add('hidden');
+        gridView.classList.remove('hidden');
+        modeIcon.textContent = '📜';
+        modeText.textContent = 'Wrap Grid';
+      } else {
+        marqueeView.classList.remove('hidden');
+        gridView.classList.add('hidden');
+        modeIcon.textContent = '🎈';
+        modeText.textContent = 'Float Flow';
+      }
+    });
+
+    // Filter Buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => {
+          b.classList.remove('bg-amber-500/20', 'text-amber-400', 'font-semibold');
+          b.classList.add('text-amber-300/70');
+        });
+        btn.classList.add('bg-amber-500/20', 'text-amber-400', 'font-semibold');
+        btn.classList.remove('text-amber-300/70');
+
+        activeFilter = btn.dataset.filter;
+        renderAllBubbles();
+      });
+    });
+
+    // Thumbnails Drawer Toggle
+    toggleThumbnailsBtn.addEventListener('click', () => {
+      thumbnailDrawer.classList.toggle('hidden');
+      thumbToggleText.textContent = thumbnailDrawer.classList.contains('hidden')
+        ? 'Show Thumbnails (16)'
+        : 'Hide Thumbnails';
+    });
+
+    // Roster Modal
+    rosterBtn.addEventListener('click', () => {
+      rosterModal.classList.remove('hidden');
+      setTimeout(() => rosterModal.classList.remove('opacity-0'), 10);
+    });
+
+    closeRosterBtn.addEventListener('click', () => {
+      rosterModal.classList.add('opacity-0');
+      setTimeout(() => rosterModal.classList.add('hidden'), 300);
+    });
+
+    rosterModal.addEventListener('click', (e) => {
+      if (e.target === rosterModal) {
+        closeRosterBtn.click();
+      }
+    });
+
+    // Sparkles Button
+    confettiBtn.addEventListener('click', () => {
+      triggerConfettiAt(window.innerWidth / 2, window.innerHeight / 2, 70);
+    });
+
+    // Music Button
+    musicToggleBtn.addEventListener('click', toggleFestiveAudio);
+
+    // Fullscreen
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => { });
+      } else {
+        document.exitFullscreen();
+      }
+    });
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === ' ') {
+        e.preventDefault();
+        togglePlayPause();
+      }
+      if (e.key === 'f' || e.key === 'F') {
+        fullscreenBtn.click();
+      }
+      if (e.key === 'Escape') {
+        if (!rosterModal.classList.contains('hidden')) {
+          closeRosterBtn.click();
+        }
+      }
+    });
+
+    // --- INITIALIZATION ---
+    renderAllBubbles();
+    renderThumbnails();
+    renderRoster();
+    updateSlide();
+    resetTimer();
+    initFloatingEmbers();
+    animateParticles();
+    initAutoPlayByDefault();
+  </script>
+</body>
+
+</html>
